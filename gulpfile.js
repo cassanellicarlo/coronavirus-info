@@ -40,7 +40,7 @@ function modules() {
     ])
     .pipe(gulp.dest('./vendor/jquery'));
   // Font Awesome
-  var fontawesome = gulp.src('./node_modules/@fortawesome/fontawesome-free/*')
+  var fontawesome = gulp.src('./node_modules/@fortawesome/fontawesome-free/**/*')
   .pipe(gulp.dest('./vendor/fontawesome'));
   return merge(bootstrap, jquery, fontawesome);
 }
