@@ -39,7 +39,10 @@ function modules() {
       '!./node_modules/jquery/dist/core.js'
     ])
     .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, jquery);
+  // Font Awesome
+  var fontawesome = gulp.src('./node_modules/@fortawesome/fontawesome-free/*')
+  .pipe(gulp.dest('./vendor/fontawesome'));
+  return merge(bootstrap, jquery, fontawesome);
 }
 
 // Watch files
