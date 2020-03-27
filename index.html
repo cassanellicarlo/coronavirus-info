@@ -81,8 +81,24 @@
       </div>
     </nav>
 
+    <div class="row" id="selezione-tab" style="display:none">
+      <div class="col-12 mt-2">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" id="tab-italia">Italia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="tab-regione"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="tab-provincia"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    <div class="row">
+    <div class="row" id="italia">
+
       <div class="col-6 col-lg-3 mt-3">
         <div class="card">
           <div class="card-body">
@@ -115,15 +131,73 @@
           </div>
         </div>
       </div>
+
+    </div>
+
+    <div class="row" id="regione" style="display:none">
+
+      <div class="col-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title ">Totale Casi</h5>
+            <h3 class="card-text text-danger" id="totale-casi-regione"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title ">Positivi Ora</h5>
+            <h3 class="card-text text-warning" id="attualmente-positivi-regione"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title ">Deceduti</h5>
+            <h3 class="card-text text-dark" id="deceduti-regione"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title ">Guariti</h5>
+            <h3 class="card-text text-success" id="guariti-regione"></h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" id="provincia" style="display:none">
+
+      <div class="col-6 col-lg-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title ">Totale Casi</h5>
+            <h3 class="card-text text-danger" id="totale-casi-provincia"></h3>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="row mt-2">
       <div class="col">
         <div class="alert alert-light" role="alert">
+
           Aggiornamento: <strong><span id="data"></span></strong>. 
           Dati forniti dal Ministero della Salute;
           Elaborazione e gestione dati a cura del Dipartimento della Protezione Civile;  <small><a href="https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE" target="_blank">Licenza CC-BY-4.0</a> - <a href="https://github.com/pcm-dpc/COVID-19" target="_blank">Repository GitHub Dataset</a></small>
         </div>
+      </div>
+
+      <div class="col-12">
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#preferitiModal">
+          <i class="far fa-star"></i> Aggiungi la tua Regione e la tua Provincia tra i preferiti
+        </button> 
       </div>
     </div>
 
@@ -209,6 +283,41 @@
 
   </div>
 
+<!-- Modal Preferiti -->
+<div class="modal fade" id="preferitiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Preferiti</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Regione</h6>
+        <div class="input-group mb-3">
+          <select class="custom-select" id="formRegioni">
+            <option selected disabled>Seleziona Regione</option>
+          </select>
+        </div>
+        <h6>Provincia</h6>
+        <div class="alert alert-warning" role="alert">
+          I dati di alcune province non sono disponibili o sono in fase di aggiornamento. Puoi selezionare anche solo la regione.
+        </div>
+        <div class="input-group mb-3">
+          <select class="custom-select" id="formProvince">
+            <option selected disabled>Seleziona Provincia</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-primary" id="salvaPreferiti" disabled>Salva</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -218,14 +327,14 @@
 
   <!-- Script Andamento Contagio Coronavirus -->
   <script src="js/andamento.js"></script>
-
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
+  <!-- Script Lista Regioni e Province -->
+  <script src="js/lista-regioni-province.js"></script>
+  <!-- Script Andamento Contagio Coronavirus Regione e Provincia -->
+  <script src="js/andamento-regione-provincia.js"></script>
+  <!-- Script Salvataggio Preferiti -->
+  <script src="js/salva-preferiti.js"></script>
+  <!-- Script Gestione Tab Preferiti -->
+  <script src="js/gestione-tab-preferiti.js"></script>
 
 </body>
 

@@ -51,6 +51,8 @@ function watchFiles() {
   gulp.watch("./**/*.html", browserSyncReload);
 }
 
+// Minify JS
+
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
 const build = gulp.series(vendor);
