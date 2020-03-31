@@ -16,7 +16,7 @@ function scaricaDatiRegioniProvince(){
                 var numeri = data.filter((regione) => regione.denominazione_regione === regionePreferita)[0];
 
                 $("#totale-casi-regione").html(numeri["totale_casi"]);
-                $("#attualmente-positivi-regione").html(numeri["totale_attualmente_positivi"]);
+                $("#attualmente-positivi-regione").html(numeri["totale_positivi"]);
                 $("#deceduti-regione").html(numeri["deceduti"]);
                 $("#guariti-regione").html(numeri["dimessi_guariti"]);
                 $("#data-regione").html(numeri["data"]);

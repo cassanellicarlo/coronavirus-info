@@ -6,7 +6,7 @@ $(function() {
         let numeri = data[0];
 
         $("#totale-casi").html(numeri["totale_casi"]);
-        $("#attualmente-positivi").html(numeri["totale_attualmente_positivi"]);
+        $("#attualmente-positivi").html(numeri["totale_positivi"]);
         $("#deceduti").html(numeri["deceduti"]);
         $("#guariti").html(numeri["dimessi_guariti"]);
         $("#data").html(numeri["data"]);
